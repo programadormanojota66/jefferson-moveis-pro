@@ -17,11 +17,11 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '948031814713195');
   fbq('track', 'PageView');
-  fbq('track', 'Lead');
+  // Lead NÃO dispara aqui — só dispara no clique do botão ou no redirect automático
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=948031814713195&ev=Lead&noscript=1"/>
+    src="https://www.facebook.com/tr?id=948031814713195&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
@@ -130,9 +130,26 @@
 </div>
 
 <script>
-  // Redireciona automaticamente após 2 segundos
+  var WPP_URL = "https://wa.me/5521982903956?text=Ol%C3%A1%2C%20vim%20pelo%20an%C3%BAncio%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20m%C3%B3veis!";
+  var leadDisparado = false;
+
+  function dispararLeadEIr() {
+    if (!leadDisparado) {
+      leadDisparado = true;
+      fbq('track', 'Lead');
+    }
+    window.location.href = WPP_URL;
+  }
+
+  // Clique manual no botão — dispara Lead e vai pro WhatsApp
+  document.getElementById('wpp-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    dispararLeadEIr();
+  });
+
+  // Redirect automático após 2 segundos — também dispara Lead
   setTimeout(function() {
-    window.location.href = "https://wa.me/5521982903956?text=Ol%C3%A1%2C%20vim%20pelo%20an%C3%BAncio%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20m%C3%B3veis!";
+    dispararLeadEIr();
   }, 2000);
 </script>
 
