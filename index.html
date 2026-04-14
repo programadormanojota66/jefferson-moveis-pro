@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Móveis</title>
+    <title>Móveis Jefferson</title>
     <script>
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -13,27 +13,26 @@
         
         fbq('init', '948031814713195');
         fbq('track', 'PageView');
-        
-        console.log('Pixel inicializado - PageView disparado');
+        console.log('%c✅ Pixel inicializado - PageView OK', 'color:#25D366;font-weight:bold');
     </script>
 </head>
-<body style="margin:0;padding:0;background:#fff;font-family:Arial,sans-serif;text-align:center;">
-    <div style="max-width:420px;margin:40px auto;padding:20px;">
-        <img src="https://via.placeholder.com/150" alt="Móveis" style="width:150px;border-radius:12px;">
-        <h1 style="margin:20px 0 10px;font-size:24px;">Móveis</h1>
-        <p style="font-size:16px;color:#333;margin-bottom:30px;">
+<body style="margin:0;padding:40px 20px;background:#fff;font-family:system-ui;text-align:center;">
+    <div style="max-width:420px;margin:0 auto;">
+        <img src="https://via.placeholder.com/180" alt="Móveis" style="width:180px;border-radius:12px;margin-bottom:20px;">
+        <h1 style="font-size:28px;margin:0 0 12px;">Móveis</h1>
+        <p style="font-size:17px;color:#222;margin-bottom:40px;">
             Olá, vim pelo anúncio e gostaria de saber mais sobre os móveis!
         </p>
         
-        <button onclick="enviarLead()" 
-                style="background:#25D366;color:white;border:none;padding:14px 40px;font-size:16px;border-radius:50px;cursor:pointer;margin:10px 0;width:80%;max-width:280px;">
+        <button onclick="dispararLead()" 
+                style="background:#25D366;color:#fff;border:none;padding:16px 50px;font-size:18px;border-radius:50px;width:100%;max-width:300px;cursor:pointer;">
             Abrir no WhatsApp
         </button>
         
-        <p style="margin-top:20px;font-size:14px;color:#666;">
+        <p style="margin-top:30px;font-size:14px;color:#666;">
             <a href="https://api.whatsapp.com/send?phone=5521977366259&text=Ol%C3%A1%2C+vim+pelo+an%C3%BAncio+e+gostaria+de+saber+mais+sobre+os+m%C3%B3veis!" 
-               style="color:#25D366;text-decoration:none;">
-                Ou clique aqui se o botão não funcionar
+               style="color:#25D366;text-decoration:underline;">
+                Clique aqui se o botão não funcionar
             </a>
         </p>
     </div>
@@ -41,23 +40,21 @@
     <script>
         let leadDisparado = false;
 
-        function enviarLead() {
+        function dispararLead() {
             if (leadDisparado) return;
             leadDisparado = true;
             
-            console.log('Disparando evento Lead...');
+            console.log('%c🚀 Disparando Lead AGORA', 'color:#25D366;font-size:16px;font-weight:bold');
             fbq('track', 'Lead');
             
-            // Redirect após dar tempo para o pixel enviar
+            // Delay seguro para o pixel enviar
             setTimeout(() => {
                 window.location.href = "https://api.whatsapp.com/send?phone=5521977366259&text=Ol%C3%A1%2C+vim+pelo+an%C3%BAncio+e+gostaria+de+saber+mais+sobre+os+m%C3%B3veis!";
-            }, 800);
+            }, 900);
         }
 
-        // Fallback: se alguém clicar no link direto
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Página carregada - PageView já disparado');
-        });
+        // Debug extra
+        console.log('%c📡 Script da ponte carregado completamente', 'color:#2563EB');
     </script>
 </body>
 </html>
